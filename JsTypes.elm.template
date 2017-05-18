@@ -1,0 +1,95 @@
+module JsTypes exposing (..)
+
+
+type alias Type a =
+    { a | str : String }
+
+
+{-| Int
+-}
+type IntType
+    = IntType
+
+
+type alias Int =
+    Type { t : IntType }
+
+
+int : String -> Int
+int str =
+    { str = str, t = IntType }
+
+
+{-| Str
+-}
+type StrType
+    = StrType
+
+
+type alias Str =
+    Type { t : StrType }
+
+
+str : String -> Str
+str str =
+    { str = str, t = StrType }
+
+
+{-| Bool
+-}
+type BoolType
+    = BoolType
+
+
+type alias Bool =
+    Type { t : BoolType }
+
+
+bool : String -> Bool
+bool str =
+    { str = str, t = BoolType }
+
+
+{-| Date
+-}
+type DateType
+    = DateType
+
+
+type alias Date =
+    Type { t : DateType }
+
+
+date : String -> Date
+date str =
+    { str = str, t = DateType }
+
+
+{-| Block
+-}
+type BlockType
+    = BlockType
+
+
+type alias Block =
+    Type { t : BlockType }
+
+
+block : String -> Block
+block str =
+    { str = str, t = BlockType }
+
+
+{-| Void
+-}
+type VoidType
+    = VoidType
+
+
+type alias Void =
+    Type { t : VoidType }
+
+
+void : String -> Void
+void str =
+    { str = str, t = VoidType }
