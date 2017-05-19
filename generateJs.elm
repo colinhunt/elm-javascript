@@ -107,15 +107,18 @@ javaScript =
             --var "d" (date.ctorInt (date.getDay date.now)) -- Compiler error yay!
             var "d" (date.ctorInt date.now)
     in
-        [ makeDate.str
-        , (d
-            |> date.setDate (Js.int "7")
-            |> date.toLocaleDateString
-            |> console.log
-          ).str
-        , GapiJs.testThis |> .str
-        ]
-            |> Js.block
+        Js.block
+            [ makeDate |> Js.stmt
+            , (d
+                |> date.setDate (Js.int "7")
+                |> date.toLocaleDateString
+                |> console.log
+              )
+                |> Js.stmt
+            ]
+            (Js.return
+                GapiJs.testThis
+            )
             |> .str
 
 
